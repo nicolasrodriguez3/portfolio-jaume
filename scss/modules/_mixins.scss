@@ -1,0 +1,21 @@
+@mixin flex($jc: flex-start, $ai: stretch, $d: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $d;
+}
+
+
+%cards{
+  background-color: rgba($color: #ffffff, $alpha: .2);
+}
+
+%btn{
+  border: 3px solid $color-p;
+  border-radius: 6px;
+  padding: .875rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  font-size: map-get($map: $sizes, $key: fs8);
+  font-weight: $bold;
+}

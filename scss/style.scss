@@ -1,0 +1,428 @@
+@import "modules/variables";
+@import "modules/normalice";
+@import "modules/mixins";
+
+// Estilos base
+body {
+	font-family: $font;
+	line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $font;
+	font-weight: $bold;
+	font-size: map-get($map: $sizes, $key: fs1);
+}
+h2 {
+	font-size: map-get($map: $sizes, $key: fs2);
+}
+h3 {
+	font-size: map-get($map: $sizes, $key: fs3);
+}
+h4 {
+	font-size: map-get($map: $sizes, $key: fs4);
+}
+h5 {
+	font-size: map-get($map: $sizes, $key: fs5);
+}
+
+button {
+	font-family: $font;
+	font-size: 0.875rem;
+}
+caption {
+	font-family: $font;
+	font-size: 0.75rem;
+}
+.bold {
+	font-weight: $bold;
+}
+.icon {
+	color: $color-p;
+	$size: 24px;
+	width: $size;
+	height: $size;
+}
+.btn-primary {
+	@extend %btn;
+	background-color: $color-p;
+	color: $white;
+
+	&:hover {
+		color: $white;
+		background: $color-s;
+		border-color: $color-s;
+	}
+}
+.btn-secondary {
+	@extend %btn;
+	background: none;
+	color: $color-p;
+	&:hover {
+		background-color: $color-s;
+		border-color: $color-s;
+		color: $white;
+	}
+}
+.desktop-only {
+	display: none;
+}
+
+//* Inicio proyecto
+body {
+	background: $bg-gradient;
+}
+nav {
+	@include flex(space-between, center);
+	padding: 1rem;
+	ul {
+		display: none;
+	}
+}
+.logo {
+	color: $color-p;
+	text-decoration: none;
+	font-size: map-get($map: $sizes, $key: fs5);
+	&:hover {
+		color: $white;
+	}
+}
+.links-mobile {
+	@include flex();
+	gap: 1rem;
+	a {
+		@include flex(center, center);
+		background: $white;
+		$size: 50px;
+		width: $size;
+		height: $size;
+		border: 2px solid $color-p;
+		border-radius: 4px;
+		&:hover {
+			background: $color-s;
+			border-color: $color-s;
+		}
+	}
+}
+main {
+	color: $color-p;
+
+	.home {
+		@include flex(space-between, center);
+		flex-wrap: wrap;
+
+		.hola {
+			order: 2;
+			padding: 1rem;
+			margin: 1rem 0 3rem;
+			h1 {
+				font-size: map-get($map: $sizes, $key: fs2);
+				margin-bottom: 2rem;
+			}
+			p {
+				font-size: map-get($map: $sizes, $key: fs6);
+				margin-bottom: 1rem;
+			}
+
+			button {
+				width: 100%;
+				padding: 1rem;
+				font-size: 1rem;
+				margin-top: 3rem;
+			}
+		}
+		.img-principal {
+			padding: 1rem;
+			max-width: 500px;
+			margin: 0 auto;
+		}
+	}
+	.intro {
+		font-size: map-get($map: $sizes, $key: fs4);
+		text-align: center;
+		padding: 1rem;
+
+		.bold {
+			margin: 2rem 0;
+		}
+		a {
+			display: inline-block;
+			margin: 0 auto;
+			&:hover {
+				animation: bounce 1.5s infinite;
+			}
+			&:active {
+				transform: scale(0.9);
+			}
+			img {
+				width: 70px;
+			}
+		}
+	}
+
+	#proyectos {
+		margin: 4rem 0;
+		padding: 1rem;
+		.img-proyecto img {
+			margin: 0 auto 1rem;
+		}
+		.titulo-proyecto {
+			background: $color-p;
+			display: inline-block;
+			color: $white;
+			padding: 6px 12px;
+			box-shadow: -5px 5px $white;
+			margin: 1rem 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+		}
+		.text-proyecto {
+			p {
+				font-size: map-get($map: $sizes, $key: fs6);
+				margin: 1rem auto 2rem;
+			}
+			a {
+				display: inline-block;
+				width: 100%;
+				margin-bottom: 1rem;
+				text-align: center;
+				text-decoration: none;
+				font-size: 1rem;
+			}
+		}
+
+		.card {
+			background: rgba($color: $white, $alpha: 0.2);
+			padding: 1.5rem;
+			margin: 6rem auto;
+			border-radius: 25px;
+			border: 5px solid rgba($color: $white, $alpha: 0.3);
+
+			img {
+				margin: 0 auto;
+				$size: 75px;
+				width: $size;
+				height: $size;
+				object-fit: cover;
+				border-radius: 50%;
+				margin-bottom: 1.5rem;
+			}
+			p {
+				font-size: map-get($map: $sizes, $key: fs6);
+				line-height: 1.7;
+			}
+			.text-secondary {
+				color: rgba($color: $color-p, $alpha: 0.5);
+				font-size: map-get($map: $sizes, $key: fs7);
+				margin-top: 2rem;
+			}
+		}
+	}
+	#contacto {
+		p {
+			color: $white;
+			margin: 1rem 0;
+		}
+		label {
+			font-weight: $bold;
+			display: block;
+			margin: 0 0 0.7rem 1.2rem;
+			&::after {
+				content: " *";
+				color: rgb(200, 20, 20);
+				font-size: map-get($map: $sizes, $key: fs8);
+			}
+		}
+		input,
+		textarea {
+			width: 100%;
+			font-size: map-get($map: $sizes, $key: fs6);
+			padding: 0.8rem 1rem;
+			border-radius: 10px;
+			margin-bottom: 1rem;
+			border: 2px solid #ccc;
+			&:focus {
+				border: 2px solid $color-p;
+				outline: none;
+			}
+		}
+		button {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+footer {
+	padding: 1rem;
+	@include flex(center, center, column);
+	color: $white;
+	p {
+		margin: 1rem;
+	}
+}
+@keyframes bounce {
+	75% {
+		transform: translateY(30%);
+	}
+}
+
+@media (min-width: 991px) {
+	.mobile-only {
+		display: none;
+	}
+	.desktop-only {
+		display: block;
+	}
+	%max-width {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	nav {
+		@extend %max-width;
+		ul {
+			@include flex(center, center);
+			gap: 2rem;
+			list-style: none;
+
+			a {
+				color: $white;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: $bold;
+
+				&:hover,
+				&:active {
+					color: $color-s;
+				}
+				&.active {
+					color: $color-p;
+				}
+			}
+		}
+	}
+
+	main {
+		@extend %max-width;
+		.home {
+			flex-wrap: nowrap;
+			margin: 0 auto;
+			min-height: 80vh;
+
+			.hola {
+				max-width: 50%;
+				order: 0;
+				padding-right: 3rem;
+
+				button {
+					display: none;
+				}
+			}
+			.img-principal {
+				padding: 0 3rem;
+				img {
+					margin: 0;
+				}
+			}
+		}
+		.intro {
+			margin: 8rem auto;
+		}
+		#proyectos {
+			padding: 0;
+
+			.proyecto {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 4vw;
+				align-items: center;
+				justify-items: center;
+
+				.img-proyecto {
+					order: 1;
+				}
+				.text-proyecto {
+					a {
+						width: max-content;
+						&:first-child {
+							margin-right: 1rem;
+						}
+					}
+				}
+			}
+			.mh100vh {
+				min-height: 100vh;
+				@include flex(center, center);
+			}
+			.card {
+				text-align: center;
+				padding: 4rem 3rem;
+			}
+			#contacto {
+				width: 50vw;
+				max-width: 700px;
+				margin: 0 auto;
+				.titulo-proyecto {
+					display: block;
+					text-align: center;
+				}
+				p {
+					text-align: center;
+					margin: 1.5rem 0;
+				}
+			}
+		}
+	}
+	footer {
+		@include flex(space-between, center);
+		flex-wrap: wrap;
+		@extend %max-width;
+		padding-top: 5rem;
+
+		.logo {
+			font-size: map-get($map: $sizes, $key: fs4);
+		}
+
+		p {
+			text-align: center;
+			width: 100%;
+			margin: 2rem 0;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	%width1200 {
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+	nav {
+		@extend %width1200;
+	}
+
+	main {
+		@extend %width1200;
+	}
+	footer {
+		@extend %width1200;
+	}
+}
+@media (min-width: 1400px) {
+	%width1400 {
+		max-width: 1250px;
+		margin: 0 auto;
+	}
+	nav {
+		@extend %width1400;
+	}
+
+	main {
+		@extend %width1400;
+	}
+	footer {
+		@extend %width1400;
+	}
+}
