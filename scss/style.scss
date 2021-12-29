@@ -115,29 +115,34 @@ main {
 		flex-wrap: wrap;
 
 		.hola {
-			order: 2;
+			order: 1;
 			padding: 1rem;
-			margin: 1rem 0 3rem;
+			margin-top: 1rem ;
+
 			h1 {
 				font-size: map-get($map: $sizes, $key: fs2);
+			}
+			
+		}
+		.hola2{
+			order: 3;
+			padding: 1rem;
+			p {
+				font-size: map-get($map: $sizes, $key: fs5);
 				margin-bottom: 2rem;
 			}
-			p {
-				font-size: map-get($map: $sizes, $key: fs6);
-				margin-bottom: 1rem;
-			}
-
 			button {
 				width: 100%;
 				padding: 1rem;
 				font-size: 1rem;
-				margin-top: 3rem;
+				margin: 1rem 0 5rem;
 			}
 		}
 		.img-principal {
 			padding: 1rem;
 			max-width: 500px;
 			margin: 0 auto;
+			order: 2;
 		}
 	}
 	.intro {
@@ -179,6 +184,7 @@ main {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			max-width: 100%;
+			font-size: calc(1.4rem + 1vw);
 		}
 		.text-proyecto {
 			p {
@@ -197,10 +203,11 @@ main {
 
 		.card {
 			background: rgba($color: $white, $alpha: 0.2);
-			padding: 1.5rem;
+			padding: calc(.5rem + 3vw) calc(.3rem + 3vw) ;
 			margin: 6rem auto;
 			border-radius: 25px;
 			border: 5px solid rgba($color: $white, $alpha: 0.3);
+			text-align: center;
 
 			img {
 				margin: 0 auto;
@@ -258,6 +265,7 @@ main {
 }
 footer {
 	padding: 1rem;
+	text-align: center;
 	@include flex(center, center, column);
 	color: $white;
 	p {
@@ -308,20 +316,34 @@ footer {
 	main {
 		@extend %max-width;
 		.home {
-			flex-wrap: nowrap;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 			margin: 0 auto;
 			min-height: 80vh;
 
 			.hola {
-				max-width: 50%;
-				order: 0;
+				align-self: end;
 				padding-right: 3rem;
 
 				button {
 					display: none;
 				}
 			}
+			.hola2{
+				align-self: start;
+				p {
+					font-size: map-get($map: $sizes, $key: fs5);
+					margin-bottom: 1rem;
+				}
+				button {
+					width: max-content;
+					padding: 1rem;
+					font-size: 1rem;
+					margin: 1rem 0;
+				}
+			}
 			.img-principal {
+				grid-area: 1 / 2 / 3 / 3;
 				padding: 0 3rem;
 				img {
 					margin: 0;
@@ -358,7 +380,7 @@ footer {
 				@include flex(center, center);
 			}
 			.card {
-				text-align: center;
+				
 				padding: 4rem 3rem;
 			}
 			#contacto {

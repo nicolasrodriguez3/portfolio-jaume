@@ -216,28 +216,32 @@ main .home {
   flex-wrap: wrap;
 }
 main .home .hola {
-  order: 2;
+  order: 1;
   padding: 1rem;
-  margin: 1rem 0 3rem;
+  margin-top: 1rem;
 }
 main .home .hola h1 {
   font-size: 3.75rem;
+}
+main .home .hola2 {
+  order: 3;
+  padding: 1rem;
+}
+main .home .hola2 p {
+  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
-main .home .hola p {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-main .home .hola button {
+main .home .hola2 button {
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
-  margin-top: 3rem;
+  margin: 1rem 0 5rem;
 }
 main .home .img-principal {
   padding: 1rem;
   max-width: 500px;
   margin: 0 auto;
+  order: 2;
 }
 main .intro {
   font-size: 2rem;
@@ -277,6 +281,7 @@ main #proyectos .titulo-proyecto {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  font-size: calc(1.4rem + 1vw);
 }
 main #proyectos .text-proyecto p {
   font-size: 1.25rem;
@@ -292,10 +297,11 @@ main #proyectos .text-proyecto a {
 }
 main #proyectos .card {
   background: rgba(255, 255, 255, 0.2);
-  padding: 1.5rem;
+  padding: calc(0.5rem + 3vw) calc(0.3rem + 3vw);
   margin: 6rem auto;
   border-radius: 25px;
   border: 5px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
 }
 main #proyectos .card img {
   margin: 0 auto;
@@ -349,6 +355,7 @@ main #contacto button {
 
 footer {
   padding: 1rem;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,19 +407,33 @@ footer p {
   }
 
   main .home {
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin: 0 auto;
     min-height: 80vh;
   }
   main .home .hola {
-    max-width: 50%;
-    order: 0;
+    align-self: end;
     padding-right: 3rem;
   }
   main .home .hola button {
     display: none;
   }
+  main .home .hola2 {
+    align-self: start;
+  }
+  main .home .hola2 p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  main .home .hola2 button {
+    width: max-content;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
   main .home .img-principal {
+    grid-area: 1/2/3/3;
     padding: 0 3rem;
   }
   main .home .img-principal img {
@@ -448,7 +469,6 @@ footer p {
     flex-direction: row;
   }
   main #proyectos .card {
-    text-align: center;
     padding: 4rem 3rem;
   }
   main #proyectos #contacto {
