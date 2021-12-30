@@ -118,7 +118,9 @@ main {
 			order: 1;
 			padding: 1rem;
 			margin-top: 1rem ;
-
+			.subtitulo{
+				font-size: map-get($map: $sizes, $key: fs4);
+			}
 			h1 {
 				font-size: map-get($map: $sizes, $key: fs2);
 			}
@@ -324,7 +326,7 @@ footer {
 			.hola {
 				align-self: end;
 				padding-right: 3rem;
-
+				
 				button {
 					display: none;
 				}

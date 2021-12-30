@@ -220,6 +220,9 @@ main .home .hola {
   padding: 1rem;
   margin-top: 1rem;
 }
+main .home .hola .subtitulo {
+  font-size: 2rem;
+}
 main .home .hola h1 {
   font-size: 3.75rem;
 }
